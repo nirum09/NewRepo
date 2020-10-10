@@ -1,10 +1,11 @@
 class Node:
+    """Node class definition for Linkedlist"""
     def __init__(self,data):
         self.data=data
         self.next=None
 
 class LinkedList:
-
+    """Class definition for singly linkedlist with associated methods"""
     def __init__(self):
         self.head=None
 
