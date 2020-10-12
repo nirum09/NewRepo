@@ -4,10 +4,13 @@ class Node:
         self.data=data
         self.next=None
 
+
+
 class LinkedList:
     """Class definition for singly linkedlist with associated methods"""
     def __init__(self):
         self.head=None
+
 
     def printlist(self):
         temp=self.head
@@ -16,12 +19,15 @@ class LinkedList:
             temp=temp.next
         print('\n')
 
+
     def getlength(self):
+
         count,temp=0,self.head
         while(temp):
             count+=1
             temp=temp.next
         return count
+
 
     def insert(self,node,position):
 
@@ -43,7 +49,9 @@ class LinkedList:
                 count+=1
             temp.next,node.next=node,temp.next
 
+
     def delete(self,position):
+
         if position<0 or position>self.getlength():
             print('Invalid position for delete.')
             raise
@@ -62,24 +70,46 @@ class LinkedList:
                 temp=temp.next
                 count+=1
             temp.next=temp.next.next
-            temp.next.next=None
+
+
+    def reverse(self):
+
+        if self.getlength():
+            current,previous=self.head,None
+            while(current.next):
+                nextnode=current.next
+                current.next=previous
+                previous=current
+                current=nextnode
+            current.next=previous
+            self.head=current
+
+
 
 
 
 if __name__=='__main__':
+
     LL=LinkedList()
     LL.head=Node(8)
     second=Node(0)
     third=Node(3)
     fourth=Node(4)
+
     LL.head.next=second
     second.next=third
     third.next=fourth
+
     #Insert Node
     newnode=Node(10)
     LL.insert(newnode,10)
     LL.printlist()
+
     #Delete Node
     LL.delete(3)
+    LL.printlist()
+
+    #reverse
+    LL.reverse()
     LL.printlist()
     print(f'Length of linkedlist:{LL.getlength()}')
