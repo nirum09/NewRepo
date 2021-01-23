@@ -10,5 +10,4 @@ def SortedArrtoBST(sorted_array):
         return None
     mid=(len(sorted_array))/2
     root=sorted_array[mid]
-    
-
+    test
